@@ -49,10 +49,11 @@ class AdjacencyMatrixGraph(SortGraph, ShortestPath,SpanningTree,  GraphInterface
 
         return self.matrix[v1][v2]
 
-
-
     def display(self):
+        ad_vertices = []
         for i in range(self.num_vertices):
             for v in self.get_adjacent_vertices(i):
-                print(i, '--->', v)
+                # print(i, '--->', v)
+                ad_vertices.append((i, v))
+        return ad_vertices
 

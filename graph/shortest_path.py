@@ -75,7 +75,9 @@ class ShortestPath(GraphInterface):
 
         if prev_vertex is None:
             print(f'There is no path {source} to {destination}')
+            return None
 
         else:
             path = [source] + path
             print(f'Shortest path is: {path}')
+            return path
