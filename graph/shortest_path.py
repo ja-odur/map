@@ -63,7 +63,7 @@ class ShortestPath(GraphInterface):
 
     def shortest_path(self, source, destination):
         distance_table = self.build_distance_table_unweighted(source)if not self.weighted else \
-            self.build_distance_table_unweighted(source)
+            self.build_distance_table_weighted(source)
 
         path = [destination]
 
@@ -75,7 +75,7 @@ class ShortestPath(GraphInterface):
 
         if prev_vertex is None:
             print(f'There is no path {source} to {destination}')
-            return None
+            return []
 
         else:
             path = [source] + path

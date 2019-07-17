@@ -5,7 +5,7 @@ from .graph_sort import SortGraph
 from .spanning_tree import SpanningTree
 
 
-class AdjacencyMatrixGraph(SortGraph, ShortestPath,SpanningTree,  GraphInterface):
+class AdjacencyMatrixGraph(SortGraph, ShortestPath, SpanningTree,  GraphInterface):
 
     def __init__(self, num_vertices, weighted=False, directed=False):
         super().__init__(num_vertices, weighted, directed)
