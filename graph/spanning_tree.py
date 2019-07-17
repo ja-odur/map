@@ -31,7 +31,7 @@ class SpanningTree(GraphInterface):
 
             if current_vertex != source:
                 last_vertex = distance_table[current_vertex][1]
-                edge = f'{last_vertex}-->{current_vertex}'
+                edge = f'{last_vertex}<-->{current_vertex}'
 
                 if edge not in spanning_tree_set:
                     spanning_tree_set.add(edge)
@@ -45,8 +45,7 @@ class SpanningTree(GraphInterface):
                     distance_table[neighbour] = (distance, current_vertex)
                     priority_queue[neighbour] = distance
 
-        for edge in spanning_tree_set:
-            print(edge)
+        return spanning_tree_set
 
     def _kruskal_minimum_spanning_tree(self):
         priority_queue = priority_dict()
@@ -79,15 +78,13 @@ class SpanningTree(GraphInterface):
             visited_vertices.add(v1)
             visited_vertices.add(v2)
 
-        print('Visited vertices:', visited_vertices)
+        # print('Visited vertices:', visited_vertices)
 
         if len(visited_vertices) != self.num_vertices:
             print('Minimum spanning tree not found')
-        else:
-            print('Minimum spanning tree')
-            for key, values in spanning_tree.items():
-                for value in values:
-                    print(key, '--->', value)
+            return {}
+
+        return spanning_tree
 
     @staticmethod
     def _has_cycle(spanning_tree):

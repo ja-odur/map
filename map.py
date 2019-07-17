@@ -19,3 +19,15 @@ class Map(AdjacencyMatrixGraph, metaclass=ABCNamedVertexMeta):
     def display(self):
         for src, dest in super().display():
             print(self.named_vertices[src], '--->', self.named_vertices[dest])
+
+    def minimum_spanning_tree(self, source=None, algorithm='kruskal'):
+        tree = super().minimum_spanning_tree(source, algorithm)
+
+        if algorithm == 'kruskal':
+            for key, values in tree.items():
+                for value in values:
+                    print(self.named_vertices[key], '<--->', self.named_vertices[value])
+        else:
+            for edge in tree:
+                print(edge)
+
